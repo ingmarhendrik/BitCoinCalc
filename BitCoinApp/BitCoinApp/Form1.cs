@@ -26,11 +26,22 @@ namespace BitCoinApp
             {
                 resultLabel.Visible = true;
                 resultTextBox.Visible = true;
-                BitCoinRates bitcoin = GetRates();
+                BitCoinRates bitcoin = GetRates("EUR");
+                float result = Int32.Parse(amountOfCoinBox.Text) * bitcoin.bpi.EUR.rate_float;
+                resultTextBox.Text = $"{result.ToString()} {bitcoin.bpi.EUR.code}";
+            }
+            
+            if(currencyCombo.SelectedItem.ToString() == "USD")
+            {
+                resultLabel.Visible = true;
+                resultTextBox.Visible = true;
+                BitCoinRates bitcoin = GetRates("USD");
+                float result = Int32.Parse(amountOfCoinBox.Text) * bitcoin.bpi.USD.rate_float;
+                resultTextBox.Text = $"{result.ToString()} {bitcoin.bpi.USD.code}";
             }
         }
 
-        public static BitCoinRates GetRates(string currency)
+        public BitCoinRates GetRates(string currency)
         {
             string url = "https://api.coindesk.com/v1/bpi/currentprice.json";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -49,12 +60,13 @@ namespace BitCoinApp
             return bitcoin;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+        private void resultTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void resultTextBox_TextChanged(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

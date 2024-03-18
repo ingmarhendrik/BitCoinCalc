@@ -31,7 +31,7 @@
             this.currencyCombo = new System.Windows.Forms.ComboBox();
             this.btnGetRates = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.amountOfCoinBox = new System.Windows.Forms.TextBox();
             this.resultLabel = new System.Windows.Forms.Label();
             this.resultTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -69,12 +69,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Amount of BitCoins";
             // 
-            // textBox1
+            // amountOfCoinBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 188);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.amountOfCoinBox.Location = new System.Drawing.Point(96, 188);
+            this.amountOfCoinBox.Name = "amountOfCoinBox";
+            this.amountOfCoinBox.Size = new System.Drawing.Size(100, 20);
+            this.amountOfCoinBox.TabIndex = 3;
             // 
             // resultLabel
             // 
@@ -104,7 +104,7 @@
             this.ClientSize = new System.Drawing.Size(1023, 638);
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.resultLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.amountOfCoinBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGetRates);
             this.Controls.Add(this.currencyCombo);
@@ -120,7 +120,7 @@
         private System.Windows.Forms.ComboBox currencyCombo;
         private System.Windows.Forms.Button btnGetRates;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox amountOfCoinBox;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.TextBox resultTextBox;
     }
