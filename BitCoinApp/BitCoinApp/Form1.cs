@@ -22,22 +22,37 @@ namespace BitCoinApp
 
         private void btnGetRates_Click(object sender, EventArgs e)
         {
-            if(currencyCombo.SelectedItem.ToString() == "EUR")
+            if (currencyCombo.SelectedItem == null)
             {
-                resultLabel.Visible = true;
-                resultTextBox.Visible = true;
-                BitCoinRates bitcoin = GetRates("EUR");
-                float result = Int32.Parse(amountOfCoinBox.Text) * bitcoin.bpi.EUR.rate_float;
-                resultTextBox.Text = $"{result.ToString()} {bitcoin.bpi.EUR.code}";
+                MessageBox.Show("Please select a currency.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            
-            if(currencyCombo.SelectedItem.ToString() == "USD")
+
+            if (currencyCombo.SelectedItem.ToString() == "EUR")
             {
-                resultLabel.Visible = true;
-                resultTextBox.Visible = true;
-                BitCoinRates bitcoin = GetRates("USD");
-                float result = Int32.Parse(amountOfCoinBox.Text) * bitcoin.bpi.USD.rate_float;
-                resultTextBox.Text = $"{result.ToString()} {bitcoin.bpi.USD.code}";
+                try
+                {
+                    resultLabel.Visible = true;
+                    resultTextBox.Visible = true;
+                    BitCoinRates bitcoin = GetRates("EUR");
+                    float result = Int32.Parse(amountOfCoinBox.Text) * bitcoin.bpi.EUR.rate_float;
+                    resultTextBox.Text = $"{result.ToString()} {bitcoin.bpi.EUR.code}";
+                }
+                catch { }
+            }
+
+        if(currencyCombo.SelectedItem.ToString() == "USD")
+        {
+                try
+                {
+                    resultLabel.Visible = true;
+                    resultTextBox.Visible = true;
+                    BitCoinRates bitcoin = GetRates("USD");
+                    float result = Int32.Parse(amountOfCoinBox.Text) * bitcoin.bpi.USD.rate_float;
+                    resultTextBox.Text = $"{result.ToString()} {bitcoin.bpi.USD.code}";
+                }
+
+                catch { }
             }
         }
 
@@ -67,6 +82,11 @@ namespace BitCoinApp
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void currencyCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

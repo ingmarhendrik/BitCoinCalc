@@ -47,6 +47,7 @@
             this.currencyCombo.Size = new System.Drawing.Size(121, 21);
             this.currencyCombo.TabIndex = 0;
             this.currencyCombo.Text = "Select Currency";
+            this.currencyCombo.SelectedIndexChanged += new System.EventHandler(this.currencyCombo_SelectedIndexChanged);
             // 
             // btnGetRates
             // 
